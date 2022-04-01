@@ -10,7 +10,7 @@ const getAllShips = async () => {
   const firstFetchResult = await fetchShipsPage(
     "https://swapi.dev/api/starships"
   );
-  ships.push(firstFetchResult.results);
+  ships.push(...firstFetchResult.results);
   next = firstFetchResult.next;
 
   while (next) {

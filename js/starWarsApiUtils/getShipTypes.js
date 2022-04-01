@@ -15,7 +15,6 @@ const getAllShips = async () => {
 
   while (next) {
     const fetchResults = await fetchShipsPage(next);
-    console.log(fetchResults);
     ships.push(...fetchResults.results);
     next = fetchResults.next;
   }
@@ -24,15 +23,17 @@ const getAllShips = async () => {
 };
 
 const getShipTypes = async () => {
-  const ships = await getAllShips;
-  const shipsByType = {};
+  const ships = await getAllShips();
+  const shipsByClass = {};
   ships.forEach((ship) => {
-    if (shipsByType.hasOwnProperty(ship.starship_class)) {
-      console.log("hi");
+    const shipClass = ship.starship_class;
+    if (shipsByClass.hasOwnProperty(shipClass)) {
+      shipsByClass[shipClass] += 1;
+    } else {
+      shipsByClass[shipClass] = 1;
     }
   });
+  return shipsByClass;
 };
-
-// starship_class
 
 export default getShipTypes;

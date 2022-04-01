@@ -6,9 +6,15 @@
   "author": "AdrianValladares <a.valladares.d@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.0"
   },
   "scripts": {
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^8.5.0"
   }
 }
